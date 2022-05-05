@@ -1,7 +1,7 @@
 {
     "repo": {
         "params": {
-            "base_branch_name": "master",
+            "base_branch_name": "main",
             "full_github_name": "nathro/ATTest"
         },
         "type": "github"
