@@ -23,7 +23,7 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install AutoTransform
-      run: pip install AutoTransform==0.2.0a1
+      run: pip install AutoTransform==0.2.0a2
     - name: Install custom components
       run: pip install -r requirements.txt
     - name: Run AutoTransform
