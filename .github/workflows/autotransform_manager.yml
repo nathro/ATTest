@@ -24,7 +24,7 @@ jobs:
     - name: Install custom components
       run: pip install -r requirements.txt
     - name: Schedule AutoTransform
-      run: autotransform manage autotransform/manage.json
+      run: autotransform manage --verbose autotransform/manage.json
       env:
         AUTO_TRANSFORM_CONFIG: environment
         AUTO_TRANSFORM_CREDENTIALS_GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}

@@ -27,7 +27,7 @@ jobs:
     - name: Install custom components
       run: pip install -r requirements.txt
     - name: Update AutoTransform
-      run: autotransform update --environment AUTO_TRANSFORM_CHANGE
+      run: autotransform update --verbose --environment AUTO_TRANSFORM_CHANGE
       env:
         AUTO_TRANSFORM_CONFIG: environment
         AUTO_TRANSFORM_CREDENTIALS_GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
