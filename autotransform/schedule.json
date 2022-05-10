@@ -17,7 +17,7 @@
             "schema": "autotransform/schemas/black_format.json",
             "schedule": {
                 "repeats": "daily",
-                "hour_of_day": 13
+                "hour_of_day": 14
             }
         }
     ]
