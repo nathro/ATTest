@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set up git user
       run: |
-        git config --global user.name "AutoTransform Bot"
+        git config --global user.name "AutoTransfor Bot"
         git config --global user.email "nathro.autotransform@gmail.com"
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
@@ -28,7 +28,7 @@ jobs:
     - name: Update pip
       run: pip install --upgrade pip
     - name: Install AutoTransform
-      run: pip install AutoTransform==0.3.0a1
+      run: pip install AutoTransform == 0.3.0a1
     - name: Install requirements
       run: pip install -r /autotransform/requirements.txt
     - name: Update AutoTransform
