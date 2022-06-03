@@ -30,7 +30,7 @@ jobs:
     - name: Install AutoTransform
       run: pip install AutoTransform==0.3.0a1
     - name: Install requirements
-      run: pip install -r /autotransform/requirements.txt
+      run: pip install -r autotransform/requirements.txt
     - name: Run AutoTransform
       run: autotransform run --environment AUTO_TRANSFORM_SCHEMA
       env:
