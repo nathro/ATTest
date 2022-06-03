@@ -1,5 +1,0 @@
-# Requirements for Schemas
-black
-
-# Type Checking
-mypy
