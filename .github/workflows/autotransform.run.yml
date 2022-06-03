@@ -28,7 +28,7 @@ jobs:
     - name: Update pip
       run: pip install --upgrade pip
     - name: Install AutoTransform
-      run: pip install AutoTransform == 0.3.0a1
+      run: pip install AutoTransform==0.3.0a1
     - name: Install requirements
       run: pip install -r /autotransform/requirements.txt
     - name: Run AutoTransform
