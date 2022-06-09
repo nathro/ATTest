@@ -3,9 +3,7 @@
         "name": "github",
         "base_branch_name": "main",
         "full_github_name": "nathro/ATTest",
-        "required_labels": [],
-        "hide_automation_info": false,
-        "hide_autotransform_docs": false
+        "required_labels": []
     },
     "runner": {
         "name": "github",

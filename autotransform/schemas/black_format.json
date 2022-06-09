@@ -8,8 +8,7 @@
         "title": "Format all python files",
         "metadata": {
             "body": "Apply Black formatting to all python files with @black_format"
-        },
-        "skip_empty_batch": false
+        }
     },
     "transformer": {
         "name": "script",
@@ -25,23 +24,19 @@
     "filters": [
         {
             "name": "regex",
-            "pattern": ".*\\.py$",
-            "inverted": false
+            "pattern": ".*\\.py$"
         }
     ],
     "validators": [],
     "commands": [],
     "config": {
         "schema_name": "Black Format",
-        "allowed_validation_level": "warning",
-        "owners": []
+        "allowed_validation_level": "warning"
     },
     "repo": {
         "name": "github",
         "base_branch_name": "main",
         "full_github_name": "nathro/ATTest",
-        "required_labels": [],
-        "hide_automation_info": false,
-        "hide_autotransform_docs": false
+        "required_labels": []
     }
 }
