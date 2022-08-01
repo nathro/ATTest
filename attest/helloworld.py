@@ -9,9 +9,6 @@ class HelloWorld:
         print("Goodbye!")
 
 
-
-
-
 if __name__ == "__main__":
     world = HelloWorld()
     world.print_hello()
