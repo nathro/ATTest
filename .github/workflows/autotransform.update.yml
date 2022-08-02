@@ -30,8 +30,8 @@ jobs:
     - name: Update AutoTransform
       run: |
         git remote -v
-        git config user.name "AutoTransform Bot"
-        git config user.email "nathro.autotransform@gmail.com"
+        git config --global user.name "AutoTransform Bot"
+        git config --global user.email "nathro.autotransform@gmail.com"
         autotransform update --environment --verbose AUTO_TRANSFORM_CHANGE
       env:
         AUTO_TRANSFORM_CONFIG: environment
