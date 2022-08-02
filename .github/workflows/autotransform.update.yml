@@ -29,6 +29,7 @@ jobs:
       run: pip install -r autotransform/requirements.txt
     - name: Update AutoTransform
       run: |
+        git remote -v
         git config user.name "AutoTransform Bot"
         git config user.email "nathro.autotransform@gmail.com"
         autotransform update --environment --verbose AUTO_TRANSFORM_CHANGE
