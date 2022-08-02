@@ -17,6 +17,11 @@ jobs:
     name: Update AutoTransform
     steps:
     - uses: actions/checkout@v2
+    - name: Set up git user
+      run: |
+        git config $_GIT_GLOBAL_OPTION user.email "nathro.autotransform@gmail.com"
+        git config $_GIT_GLOBAL_OPTION user.name "AutoTransform Bot"
+        git config $_GIT_GLOBAL_OPTION user.password ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -28,11 +33,7 @@ jobs:
     - name: Install requirements
       run: pip install -r autotransform/requirements.txt
     - name: Update AutoTransform
-      run: |
-        git remote -v
-        git config --global user.name "AutoTransform Bot"
-        git config --global user.email "nathro.autotransform@gmail.com"
-        autotransform update --environment --verbose AUTO_TRANSFORM_CHANGE
+      run: autotransform update --environment --verbose AUTO_TRANSFORM_CHANGE
       env:
         AUTO_TRANSFORM_CONFIG: environment
         AUTO_TRANSFORM_GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
