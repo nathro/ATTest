@@ -22,6 +22,7 @@ jobs:
         git config $_GIT_GLOBAL_OPTION user.email "nathro.autotransform@gmail.com"
         git config $_GIT_GLOBAL_OPTION user.name "AutoTransform Bot"
         git config $_GIT_GLOBAL_OPTION user.password ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
+        echo "GIT_USER=AutoTransform Bot:${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}" >> $GITHUB_ENV
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
