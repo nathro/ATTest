@@ -32,7 +32,10 @@ jobs:
     - name: Install requirements
       run: pip install -r autotransform/requirements.txt
     - name: Run AutoTransform
-      run: autotransform run --environment --verbose AUTO_TRANSFORM_SCHEMA
+      run: |
+        git config user.name "AutoTransform Bot"
+        git config user.email "nathro.autotransform@gmail.com"
+        autotransform run --environment --verbose AUTO_TRANSFORM_SCHEMA
       env:
         AUTO_TRANSFORM_CONFIG: environment
         AUTO_TRANSFORM_GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
