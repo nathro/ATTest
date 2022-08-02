@@ -1,9 +1,8 @@
 {
     "repo": {
         "name": "github",
-        "base_branch_name": "main",
-        "full_github_name": "nathro/ATTest",
-        "required_labels": []
+        "base_branch": "main",
+        "full_github_name": "nathro/ATTest"
     },
     "runner": {
         "name": "github",
@@ -13,29 +12,41 @@
     "steps": [
         {
             "name": "conditional",
-            "action": "merge",
+            "actions": [
+                {
+                    "name": "merge"
+                }
+            ],
             "condition": {
                 "name": "change_state",
-                "comparison": "eq",
-                "state": "approved"
+                "comparison": "equal",
+                "value": "approved"
             }
         },
         {
             "name": "conditional",
-            "action": "abandon",
+            "actions": [
+                {
+                    "name": "abandon"
+                }
+            ],
             "condition": {
                 "name": "change_state",
-                "comparison": "eq",
-                "state": "changes_requested"
+                "comparison": "equal",
+                "value": "changes_requested"
             }
         },
         {
             "name": "conditional",
-            "action": "abandon",
+            "actions": [
+                {
+                    "name": "update"
+                }
+            ],
             "condition": {
                 "name": "updated_ago",
-                "comparison": "gte",
-                "time": 259200
+                "comparison": "greater_than_or_equal",
+                "value": 1
             }
         }
     ]

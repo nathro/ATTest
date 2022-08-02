@@ -27,8 +27,6 @@
             "pattern": ".*\\.py$"
         }
     ],
-    "validators": [],
-    "commands": [],
     "config": {
         "schema_name": "Black Format",
         "allowed_validation_level": "warning"
@@ -36,7 +34,6 @@
     "repo": {
         "name": "github",
         "base_branch_name": "main",
-        "full_github_name": "nathro/ATTest",
-        "required_labels": []
+        "full_github_name": "nathro/ATTest"
     }
 }
