@@ -24,5 +24,6 @@ jobs:
     - name: Schedule AutoTransform
       run: autotransform schedule --verbose
       env:
+        PYTHONPATH: /home/runner/work/ATTest/ATTest/autotransform/components
         AUTO_TRANSFORM_CONFIG: environment
         AUTO_TRANSFORM_GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}

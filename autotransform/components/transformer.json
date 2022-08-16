@@ -1,0 +1,6 @@
+{
+    "format": {
+        "class_name": "FormatTransformer",
+        "module": "atexample.format"
+    }
+}

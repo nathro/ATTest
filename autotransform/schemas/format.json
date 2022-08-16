@@ -1,0 +1,26 @@
+{
+    "input": {
+        "name": "empty"
+    },
+    "batcher": {
+        "name": "single",
+        "title": "Format all files",
+        "metadata": {
+            "body": "Apply formating to all files using a custom Transformer"
+        }
+    },
+    "transformer": {
+        "name": "custom/format",
+        "line_length": 100
+    },
+    "filters": [],
+    "config": {
+        "schema_name": "Format",
+        "allowed_validation_level": "warning"
+    },
+    "repo": {
+        "name": "github",
+        "base_branch": "main",
+        "full_github_name": "nathro/ATTest"
+    }
+}
