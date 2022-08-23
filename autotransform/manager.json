@@ -46,7 +46,7 @@
             "condition": {
                 "name": "updated_ago",
                 "comparison": "greater_than_or_equal",
-                "value": 1
+                "value": 86400
             }
         }
     ]
