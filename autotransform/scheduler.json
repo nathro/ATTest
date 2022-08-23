@@ -14,7 +14,7 @@
             "schema_name": "Black Format",
             "schedule": {
                 "repeats": "daily",
-                "hour_of_day": 19
+                "hour_of_day": 15
             }
         }
     ]
