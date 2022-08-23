@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Schedule AutoTransform
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -18,7 +20,7 @@ jobs:
     - name: Update pip
       run: pip install --upgrade pip
     - name: Install AutoTransform
-      run: pip install AutoTransform==1.0.2a1
+      run: pip install AutoTransform==1.0.3a1
     - name: Install requirements
       run: pip install -r autotransform/requirements.txt
     - name: Schedule AutoTransform

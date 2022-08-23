@@ -4,23 +4,26 @@ on:
   workflow_dispatch:
     inputs:
       schema:
-        description: "A JSON encoded schema to run"
+        description: "The name of a Schema in the schema_map"
         required: true
         type: string
-
-permissions:
-  contents: write
+      max_submissions:
+        description: "The maximum number of submissions when running the schema"
+        type: string
+        required: false
+      filter:
+        description: "A filter to add to the schema"
+        type: string
+        required: false
 
 jobs:
   run-autotransform:
     runs-on: ubuntu-latest
     name: Run AutoTransform
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up git user
-      run: |
-        git config user.name "AutoTransform Bot"
-        git config user.email "nathro.autotransform@gmail.com"
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -28,15 +31,24 @@ jobs:
     - name: Update pip
       run: pip install --upgrade pip
     - name: Install AutoTransform
-      run: pip install AutoTransform==1.0.2a1
+      run: pip install AutoTransform==1.0.3a1
     - name: Install requirements
       run: pip install -r autotransform/requirements.txt
-    - name: Run AutoTransform
+    - name: Set up options
       run: |
-        git config user.name "AutoTransform Bot"
-        git config user.email "nathro.autotransform@gmail.com"
-        autotransform run --environment --verbose AUTO_TRANSFORM_SCHEMA
+        options="--verbose --name"
+        if [[ ! -z "${MAX_SUBMISSIONS}" ]]; then
+          options="$options --max-submissions $MAX_SUBMISSIONS"
+        fi
+        if [[ ! -z "${FILTER}" ]]; then
+          options="$options --filter '$FILTER'"
+        fi
+        echo "OPTIONS=$options" >> $GITHUB_ENV
+      env:
+        MAX_SUBMISSIONS: ${{ github.event.inputs.max_submissions }}
+        FILTER: ${{ github.event.inputs.filter }}
+    - name: Run AutoTransform
+      run: autotransform run ${{ env.OPTIONS }} "${{ github.event.inputs.schema }}"
       env:
         AUTO_TRANSFORM_CONFIG: environment
         AUTO_TRANSFORM_GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
-        AUTO_TRANSFORM_SCHEMA: ${{ github.event.inputs.schema }}
