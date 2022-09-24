@@ -1,4 +1,4 @@
-name: Manage AutoTransform
+name: Docker Test Action
 
 on:
   workflow_dispatch:
