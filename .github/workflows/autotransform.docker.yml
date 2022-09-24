@@ -1,12 +1,38 @@
-name: Docker Test Action
+name: Run Docker
 
 on:
   workflow_dispatch:
+    inputs:
+      command:
+        type: choice
+        description: "The autotransform command to run"
+        required: true
+        options:
+        - manage
+        - run
+        - schedule
+        - update
+      max_submissions:
+        description: "The maximum number of submissions when running a schema"
+        type: string
+        required: false
+      filter:
+        description: "A filter to add to a schema"
+        type: string
+        required: false
+      schema_name:
+        description: "The name of a schema to run"
+        type: string
+        required: false
+      change:
+        description: "The change to update"
+        type: string
+        required: false
 
 jobs:
-  run-autotransform:
+  run-docker:
     runs-on: ubuntu-latest
-    name: Run AutoTransform
+    name: Run Docker
     steps:
     - uses: actions/checkout@v3
       with:
@@ -14,8 +40,10 @@ jobs:
     - name: Run docker
       run: autotransform/entrypoint.sh
       env:
-        GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
-        COMMAND: run
-        SCHEMA_NAME: Black Format
-        MAX_SUBMISSIONS: 3
         REPO_DIR: ATTest
+        GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
+        COMMAND: ${{ github.event.inputs.command }}
+        SCHEMA_NAME: ${{ github.event.inputs.schema_name }}
+        MAX_SUBMISSIONS: ${{ github.event.inputs.max_submissions }}
+        FILTER: ${{ github.event.inputs.filter }}
+        AUTO_TRANSFORM_CHANGE: ${{ github.event.inputs.change }}
