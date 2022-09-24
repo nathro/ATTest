@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 docker build -f autotransform/Dockerfile \
-    --build-arg REPO_DIR=$REPO_DIR \
     --build-arg COMMAND=$COMMAND \
     -t autotransform \
     --no-cache \
