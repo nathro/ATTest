@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-docker build -f autotransform/Dockerfile \
-    --build-arg REPO_DIR=$REPO_DIR \
+docker build --build-arg REPO_DIR=$REPO_DIR \
     --build-arg COMMAND=$COMMAND \
-    -t autotransform
+    -t autotransform \
+    autotransform
 
 if [$COMMAND == "schedule" || $COMMAND == "manage"]; then
     docker run -e AUTO_TRANSFORM_CONFIG=environment \
