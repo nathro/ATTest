@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  manage-autotransform:
+  run-autotransform:
     runs-on: ubuntu-latest
-    name: Manage AutoTransform
+    name: Run AutoTransform
     steps:
     - uses: actions/checkout@v3
       with:
@@ -15,5 +15,7 @@ jobs:
       run: autotransform/entrypoint.sh
       env:
         GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
-        COMMAND: manage
+        COMMAND: run
+        SCHEMA_NAME: Black Format
+        MAX_SUBMISSIONS: 3
         REPO_DIR: ATTest
