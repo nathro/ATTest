@@ -21,7 +21,7 @@ if [[ $COMMAND == "run" ]]; then
         -e FILTER="$FILTER" \
         -e MAX_SUBMISSIONS="$MAX_SUBMISSIONS" \
         -e SCHEMA_NAME="$SCHEMA_NAME" \
-        -v "$(pwd)"/"$REPO_DIR":/$REPO_DIR \
+        -v "$(pwd)":/$REPO_DIR \
         autotransform
     RESULT=$?
 fi
@@ -30,7 +30,7 @@ if [[ $COMMAND == "update" ]]; then
     docker run -e AUTO_TRANSFORM_CONFIG=environment \
         -e AUTO_TRANSFORM_GITHUB_TOKEN="$GITHUB_TOKEN" \
         -e AUTO_TRANSFORM_CHANGE="$AUTO_TRANSFORM_CHANGE" \
-        -v "$(pwd)"/"$REPO_DIR":/$REPO_DIR \
+        -v "$(pwd)":/$REPO_DIR \
         autotransform
     RESULT=$?
 fi
