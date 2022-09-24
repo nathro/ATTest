@@ -1,0 +1,19 @@
+name: Manage AutoTransform
+
+on:
+  workflow_dispatch:
+
+jobs:
+  manage-autotransform:
+    runs-on: ubuntu-latest
+    name: Manage AutoTransform
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
+    - name: Run docker
+      run: autotransform/entrypoint.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.AUTO_TRANSFORM_BOT_GITHUB_TOKEN }}
+        COMMAND: manage
+        REPO_DIR: ATTest
