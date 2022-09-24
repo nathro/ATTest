@@ -4,6 +4,7 @@ ARG REPO_DIR
 ARG COMMAND
 WORKDIR ${REPO_DIR}
 
+RUN echo "$(pwd)"
 RUN pip install AutoTransform
 RUN pip install autotransform/requirements.txt
 
