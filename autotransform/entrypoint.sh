@@ -34,7 +34,7 @@ fi
 
 docker system prune -a -f >/dev/null 2>&1 &
 
-if [[-z $RESULT ]]; then
+if [[ -z $RESULT ]]; then
     echo "Unknown command $1"
     exit 1
 fi
