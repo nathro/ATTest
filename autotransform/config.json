@@ -6,5 +6,6 @@
         "name": "github",
         "run_workflow": "autotransform.run.yml",
         "update_workflow": "autotransform.update.yml"
-    }
+    },
+    "component_directory": "autotransform/components"
 }
